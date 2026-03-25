@@ -9,12 +9,22 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         User = get_user_model()
-        # Clear existing data
-        User.objects.all().delete()
-        Team.objects.all().delete()
-        Activity.objects.all().delete()
-        Leaderboard.objects.all().delete()
-        Workout.objects.all().delete()
+        # Clear existing data (delete individually for Djongo compatibility)
+        for obj in User.objects.all():
+            if getattr(obj, 'id', None):
+                obj.delete()
+        for obj in Team.objects.all():
+            if getattr(obj, 'id', None):
+                obj.delete()
+        for obj in Activity.objects.all():
+            if getattr(obj, 'id', None):
+                obj.delete()
+        for obj in Leaderboard.objects.all():
+            if getattr(obj, 'id', None):
+                obj.delete()
+        for obj in Workout.objects.all():
+            if getattr(obj, 'id', None):
+                obj.delete()
 
         # Create Teams
         marvel = Team.objects.create(name='Marvel')
