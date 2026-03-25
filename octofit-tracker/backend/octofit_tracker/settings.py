@@ -29,9 +29,11 @@ DEBUG = True
 
 
 import os
-ALLOWED_HOSTS = ['*']
-if os.environ.get('CODESPACE_NAME'):
-    ALLOWED_HOSTS.append(f"{os.environ.get('CODESPACE_NAME')}-8000.app.github.dev")
+CODESPACE_NAME = os.environ.get('CODESPACE_NAME')
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+if CODESPACE_NAME:
+    ALLOWED_HOSTS.append(f"{CODESPACE_NAME}-8000.app.github.dev")
+ALLOWED_HOSTS.append('*')  # For dev convenience, remove in production
 
 
 # Application definition
@@ -95,10 +97,6 @@ DATABASES = {
         'CLIENT': {
             'host': 'mongodb://localhost:27017',
             'port': 27017,
-            'username': '',
-            'password': '',
-            'authSource': 'admin',
-            'authMechanism': 'SCRAM-SHA-1',
         },
     }
 }
@@ -147,8 +145,15 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = ['*']
 CORS_ALLOW_METHODS = ['*']
 
-# Allow all hosts
-CSRF_TRUSTED_ORIGINS = ['*']
+# CSRF trusted origins for local and Codespace
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+    'https://localhost:8000',
+    'https://127.0.0.1:8000',
+]
+if CODESPACE_NAME:
+    CSRF_TRUSTED_ORIGINS.append(f"https://{CODESPACE_NAME}-8000.app.github.dev")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
