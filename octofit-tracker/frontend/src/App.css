@@ -1,0 +1,103 @@
+.table-activities thead {
+  background: #ffb347;
+  color: #fff;
+}
+.table-leaderboard thead {
+  background: #4fc3f7;
+  color: #fff;
+}
+.table-teams thead {
+  background: #81c784;
+  color: #fff;
+}
+.table-users thead {
+  background: #ba68c8;
+  color: #fff;
+}
+.table-workouts thead {
+  background: #f06292;
+  color: #fff;
+}
+
+body {
+  background: linear-gradient(135deg, #f8fafc 0%, #e0c3fc 100%);
+  min-height: 100vh;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #6f42c1 0%, #b993d6 100%) !important;
+  box-shadow: 0 2px 8px rgba(111,66,193,0.08);
+}
+.navbar-brand, .navbar-nav .nav-link {
+  color: #fff !important;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.navbar-brand img {
+  height: 40px;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link:hover {
+  color: #ffe082 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #6f42c1;
+  font-weight: 700;
+}
+
+.table {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(111,66,193,0.06);
+}
+.table thead {
+  background: #6f42c1;
+  color: #fff;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f3e8ff;
+}
+.table-bordered th, .table-bordered td {
+  border-color: #b993d6;
+}
+
+.btn, .btn-primary {
+  background: linear-gradient(90deg, #6f42c1 0%, #b993d6 100%);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(111,66,193,0.08);
+  transition: background 0.2s;
+}
+.btn:hover, .btn-primary:hover {
+  background: linear-gradient(90deg, #b993d6 0%, #6f42c1 100%);
+  color: #ffe082;
+}
+
+a, .App-link {
+  color: #6f42c1;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+a:hover, .App-link:hover {
+  color: #b993d6;
+}
+
+.card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(111,66,193,0.08);
+  border: none;
+}
+
+.modal-content {
+  border-radius: 16px;
+}
+
+.logo-left {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
